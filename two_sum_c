@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int *ret_array = (int *)malloc(2* sizeof(int)); int i=0,j=0,k=0;
+    if(ret_array == NULL)
+    {
+        printf("Memory allocation failed");
+    }
+    for(i=0; i<numsSize; i++)
+    {
+        for(j=0; j<numsSize; j++)
+        {
+            if((nums[i] + nums[j] == target) && (i != j))
+            {
+                ret_array[k++]=i;
+            }
+        }
+    }
+    *returnSize = sizeof(ret_array) / sizeof(ret_array[0]);
+    return(ret_array);
+}
+
